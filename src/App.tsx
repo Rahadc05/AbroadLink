@@ -1,25 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './Components/Navbar';
+import Home from './Pages/Home';
+import AboutPage from './Pages/About';
+import Service from './Pages/Service'; 
+import WhatsAppFloatingButton from './Components/Floatingwatsapp';
+import Contact from './Pages/Contact';
+import PrivacyPolicySections from './Pages/Privacy-Policy';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/offerings" element={<Service />} /> 
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicySections />} />
+        {/* Add other pages later */}
+      </Routes>
+      <WhatsAppFloatingButton />
+    </Router>
   );
 }
 
