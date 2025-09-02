@@ -39,8 +39,8 @@ const Home = () => {
   };
 
   return (
+    <main className="pt-20 font-libre">
     <motion.main
-      className="pt-20 font-libre"
       variants={pageVariants}
       initial="initial"
       animate="animate"
@@ -49,9 +49,8 @@ const Home = () => {
     >
       {/* Hero Section */}
       <section
-        className="relative min-h-[60vh] flex flex-col items-center justify-center text-center bg-cover bg-center bg-no-repeat px-4"
+        className="relative min-h-[60vh] flex flex-col items-center justify-center text-center bg-cover bg-center bg-no-repeat bg-scroll md:bg-fixed px-4"
         style={{ backgroundImage: "url('/your-background.jpg')" }}
-        aria-label="Hero Section"
       >
         <p className="text-xs sm:text-sm text-gray-600 mb-2">Empowering Dreams Abroad</p>
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-black">
@@ -66,22 +65,21 @@ const Home = () => {
         <button
           onClick={handleBookAppointment}
           className="bg-indigo-900 text-white px-4 sm:px-6 py-3 text-xs sm:text-sm font-medium rounded hover:bg-red-700 transition-all"
-          aria-label="Book Your Appointment"
         >
           Book your appointment
         </button>
       </section>
 
-      {/* Main Feature Image Box */}
+      {/* Fixed Background Box Section */}
       <section className="flex justify-center py-8 sm:py-10 bg-white px-4">
         <div
-          className="w-full max-w-6xl h-[250px] sm:h-[400px] md:h-[500px] bg-center bg-cover shadow-lg overflow-hidden rounded-lg"
+          className="w-full max-w-6xl h-[250px] sm:h-[400px] md:h-[500px] bg-center bg-cover shadow-lg overflow-hidden bg-scroll md:bg-fixed rounded-lg"
           style={{ backgroundImage: "url('/images/mainpicture.png')" }}
-          aria-label="Main Feature"
         >
           <div className="w-full h-full bg-black/20 flex items-center justify-center"></div>
         </div>
       </section>
+        
 
       {/* Services Section */}
       <section className="py-12 sm:py-16 px-4 sm:px-8 md:px-16 lg:px-32 bg-white text-gray-800">
@@ -132,6 +130,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+      
 
       {/* Why Choose Us Section */}
       <section className="bg-white py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
@@ -232,7 +231,8 @@ const Home = () => {
           </div>
         </div>
       </section>
-    </motion.main>
+      </motion.main>
+    </main>
   );
 };
 
