@@ -3,7 +3,7 @@ import Navbar from './Components/Navbar';
 import Home from './Pages/Home';
 import AboutPage from './Pages/About';
 import Service from './Pages/Service'; 
-import WhatsAppFloatingButton from './Components/Floatingwatsapp';
+// import WhatsAppFloatingButton from './Components/Floatingwatsapp';
 import Contact from './Pages/Contact';
 import PrivacyPolicySections from './Pages/Privacy-Policy';
 function App() {
@@ -18,7 +18,7 @@ function App() {
         <Route path="/privacy-policy" element={<PrivacyPolicySections />} />
         {/* Add other pages later */}
       </Routes>
-      <WhatsAppFloatingButton />
+      {/* <WhatsAppFloatingButton /> */}
     </Router>
   );
 }

@@ -1,5 +1,4 @@
 // src/components/Navbar.tsx
-
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -18,6 +17,11 @@ const Navbar = () => {
 
   const handleBookNow = () => {
     navigate('/contact');
+    setIsOpen(false); // close mobile menu
+  };
+
+  const handleLinkClick = () => {
+    setIsOpen(false); // close mobile menu when a link is clicked
   };
 
   return (
@@ -66,6 +70,7 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 to={link.path}
+                onClick={handleLinkClick}
                 className="px-3 py-2 rounded text-gray-700 hover:bg-red-700 hover:text-white text-sm font-medium transition-all duration-200"
               >
                 {link.name}

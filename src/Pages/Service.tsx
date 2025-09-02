@@ -37,50 +37,79 @@ const services = [
 ];
 
 const Service: React.FC = () => {
-    const navigate = useNavigate(); // ✅ now inside component
+  const navigate = useNavigate();
 
   const handleContactClick = () => {
     window.scrollTo(0, 0);
     navigate("/contact");
-    };
+  };
+
   return (
     <>
-    <div className="max-w-7xl mx-auto py-40 space-y-24">
-      {services.map((service) => (
-        <div
-          key={service.number}
-          className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 border-b-2 border-gray-200 pb-8"
-        >
-          <div className="md:w-2/3">
-            <span className="text-sm font-semibold text-indigo-700">{service.number}</span>
-            <h2 className="mt-2 text-3xl font-semibold text-gray-900">{service.title}</h2>
-            <p className="mt-4 text-gray-600">{service.description}</p>
+      {/* Services Section */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-40 sm:py-40 space-y-16">
+        {services.map((service, index) => (
+          <div
+            key={service.number}
+            className={`flex flex-col ${
+              index % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"
+            } md:items-center md:justify-between gap-6 border-b border-gray-200 pb-8`}
+          >
+            {/* Text Section */}
+            <div className="md:w-2/3">
+              <span className="text-sm font-semibold text-indigo-700">
+                {service.number}
+              </span>
+              <h2 className="mt-2 text-2xl sm:text-3xl font-semibold text-gray-900 leading-snug">
+                {service.title}
+              </h2>
+              <p className="mt-3 sm:mt-4 text-gray-600 text-sm sm:text-base leading-relaxed">
+                {service.description}
+              </p>
+            </div>
+
+            {/* Image Section */}
+            <div className="md:w-1/3 flex justify-center md:justify-end">
+              <img
+                src={service.imgSrc}
+                alt={service.alt}
+                className="rounded-md object-cover w-full sm:w-[330px] h-[220px] sm:h-[250px] shadow"
+              />
+            </div>
           </div>
-          <div className="md:w-1/3 flex md:justify-end">
-            <img
-              src={service.imgSrc}
-              alt={service.alt}
-              className="rounded-md object-cover w-[330px] h-[250px] shadow"
-            />
-          </div>
-        </div>
-      ))}
-    </div>
-     <section className="relative flex items-center justify-center py-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/mainpicture.png')" }}>
+        ))}
+      </div>
+
+      {/* CTA Section */}
+      <section
+        className="relative flex items-center justify-center py-20 sm:py-28 px-4 bg-cover bg-center"
+        style={{ backgroundImage: "url('/images/mainpicture.png')" }}
+      >
         <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="relative z-10 text-center">
-          <h2 className="text-4xl font-bold text-white">Start Your Journey Today</h2>
-          <p className="text-white">Contact Abroadlink now and let us help you turn your study abroad dreams into a thrilling reality!</p>
+        <div className="relative z-10 text-center max-w-2xl">
+          <h2 className="text-2xl sm:text-4xl font-bold text-white leading-tight">
+            Start Your Journey Today
+          </h2>
+          <p className="mt-3 sm:mt-4 text-white text-sm sm:text-base">
+            Contact Abroadlink now and let us help you turn your study abroad
+            dreams into a thrilling reality!
+          </p>
           <div className="mt-6">
-            <button onClick={handleContactClick} className="bg-blue-900 hover:bg-red-700 text-white px-6 py-3 rounded">Explore More</button>
+            <button
+              onClick={handleContactClick}
+              className="bg-blue-900 hover:bg-red-700 transition-colors text-white px-5 sm:px-6 py-2 sm:py-3 rounded text-sm sm:text-base"
+            >
+              Explore More
+            </button>
           </div>
         </div>
       </section>
-        <p className="text-sm text-gray-600 text-center">
-          © {new Date().getFullYear()} Abroad Link
-        </p>
+
+      {/* Footer */}
+      <p className="text-xs sm:text-sm text-gray-600 text-center">
+        © {new Date().getFullYear()} Abroad Link
+      </p>
     </>
-    
   );
 };
 
